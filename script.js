@@ -8,11 +8,15 @@ form.addEventListener('submit', (e) => {
   let requestBody = new FormData(form);
   fetch(scriptURL, { method: 'POST', body: requestBody })
     .then((response) => {
-      alert('Success!', response);
-      submitButton.disabled = false;
+      Swal.fire({
+        title: 'Isian Form berhasil dikirim.',
+        text: 'Thank you fren udah meluangkan waktunya.',
+        icon: 'success',
+        confirmButtonText: 'Okeee.',
+      });
+      response;
     })
     .catch((error) => {
       alert('Error!', error.message);
-      submitButton.disabled = false;
     });
 });
